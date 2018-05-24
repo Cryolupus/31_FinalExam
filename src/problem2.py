@@ -8,6 +8,7 @@ Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
 
 import time
 import testing_helper
+import math
 
 
 def main():
@@ -19,9 +20,9 @@ def main():
     print()
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
-    # run_test_problem2a()
-    # run_test_problem2b()
-    # run_test_problem2c()
+    run_test_problem2a()
+    run_test_problem2b()
+    run_test_problem2c()
 
 
 def is_prime(n):
@@ -170,10 +171,14 @@ def problem2a(x, sequence):
       :type sequence:  [int]
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-
+    total = []
+    for k in range(len(sequence)):
+        if sequence[k] > x:
+            total.append(sequence[k])
+    return total
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
@@ -250,10 +255,16 @@ def problem2b(sequence):
       :type sequence  [int]
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-
+    largest = 0
+    temp = 0
+    for k in range(len(sequence)):
+        if math.fabs(sequence[k])>temp:
+            temp = math.fabs(sequence[k])
+            largest = k
+    return largest
 
 def run_test_problem2c():
     """ Tests the  problem2c   function. """
@@ -393,11 +404,16 @@ def problem2c(x):
       :type x:    int
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-
-
+    k = x
+    while k>=x:
+        if is_prime(sum_of_digits(k))==True and is_prime(k)==True:
+            break
+        else:
+            k = k + 1
+    return k
 ###############################################################################
 # Our tests use the following to print error messages in red.
 # Do NOT change it.  You do NOT have to do anything with it.
