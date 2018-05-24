@@ -87,37 +87,38 @@ And this one for n=14:
     #   print Xs for the spaces until you figure out where the problem is
     #   (and then change the Xs back to spaces).
     # ------------------------------------------------------------------
-    blank = " "
-    numbers = [0,1,2,3,4,5,6,7,8,9]
+    blank = ' '
+    numbers = [1,2,3,4,5,6,7,8,9,0]
     starnum = 2
     leftnum = 1
     rightnum = n
     spacenum = n - leftnum
     for k in range(n):
-        line = " "
+        line = ""
         for j in range(spacenum):
-            line = line + blank
+            line = str(line) + blank
         spacenum = spacenum -1
 
-        line = line + blank
+        line = str(line) + blank
         for f in range(leftnum):
-            if f >9:
-                line = line + numbers[f-10]
+            if f >=10:
+                line = str(line) + str(numbers[f-10])
             else:
-                line = + numbers[f]
+                line = str(line) + str(numbers[f])
         leftnum = leftnum + 1
 
-        line = line + blank
+        line = str(line) + blank
         for a in range(starnum):
             line = line + '*'
         starnum = starnum + 1
 
         line = line + blank
-        for b in range(rightnum+1, 0, -1):
-            if b > 9:
-                line = line + numbers[b-10]
+        for b in range(rightnum+1, 1, -1):
+            if b >=10:
+                line = str(line) + str(numbers[b-12])
             else:
-                line = line + numbers[b]
+                line = str(line) + str(numbers[b-2])
+        rightnum = rightnum-1
         print(line)
 
 
