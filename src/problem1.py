@@ -20,7 +20,7 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
     run_test_problem1a()
-    # run_test_problem1b()
+    run_test_problem1b()
 
 
 def run_test_problem1a():
@@ -173,7 +173,7 @@ def problem1b(numbers):
     # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-    a = len(numbers)/3
+    a = len(numbers)//3
     total = 0
     for k in range(a):
         total = total + numbers[a+k]
